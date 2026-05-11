@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+.claude
+
+YoutubeCaseStudy/YoutubeSample.sqlite
+YoutubeCaseStudy/YoutubeSample.json
+YoutubeCaseStudy/YoutubeSample.csv
+YoutubeCaseStudy/UScomments.csv
+YoutubeCaseStudy/additional_data/
+
+Zomato_Case_of_Study/zomato_rawdata.sqlite
+Zomato_Case_of_Study/heatmap.html
+Zomato_Case_of_Study/heatmap_automated.html
