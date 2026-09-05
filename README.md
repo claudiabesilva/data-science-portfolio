@@ -6,6 +6,16 @@ A collection of data analysis and data science projects built to develop and dem
 
 ## Projects
 
+### [911 Calls: Emergency Response Patterns](911_Calls_Analysis/)
+Exploratory analysis of ~99,500 emergency call records from Montgomery County, PA.
+- Call reason extraction (EMS, Fire, Traffic) from raw title codes
+- Time-based feature engineering: hour, day of week, month
+- Day/hour and day/month heatmaps and clustermaps of call density
+
+`pandas` `numpy` `matplotlib` `seaborn`
+
+---
+
 ### [Zomato Bangalore Restaurant Insights](Zomato_Case_of_Study/)
 Exploratory analysis of 51,700+ Bangalore restaurants from Zomato.
 - Online ordering vs. rating relationship
