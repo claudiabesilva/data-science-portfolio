@@ -1,10 +1,20 @@
 # Data Analysis Portfolio
 
-A collection of data analysis and data science projects built to develop and demonstrate practical skills across the full analytics workflow — from data cleaning and exploration to NLP, geospatial analysis, and interactive dashboards.
+A collection of data analysis and data science projects built to develop and demonstrate practical skills across the full analytics workflow — from data cleaning and exploration to statistical modeling, NLP, geospatial analysis, and interactive dashboards.
 
 > This portfolio is actively growing. New projects are added regularly.
 
 ## Projects
+
+### [Wine Quality: Statistical Analysis](Wine_quality_analysis/)
+Statistical analysis of 6,497 Portuguese *vinho verde* wines (5,320 after removing duplicates) to find which physicochemical properties relate to sensory quality.
+- Hypothesis testing: Welch t-test, Mann-Whitney U, ANOVA with Tukey HSD, Kruskal-Wallis, effect sizes
+- Linear regression with VIF, residual diagnostics and Breusch-Pagan test
+- Logistic regression for "good wine" (quality 7+): odds ratios and test-set evaluation (recall 79%, ROC AUC 0.825)
+
+`pandas` `scipy` `statsmodels` `scikit-learn` `seaborn`
+
+---
 
 ### [911 Calls: Emergency Response Patterns](911_Calls_Analysis/)
 Exploratory analysis of ~99,500 emergency call records from Montgomery County, PA.
@@ -59,6 +69,7 @@ Exploratory analysis of ChatGPT-related data.
 |---|---|
 | Data wrangling | pandas, numpy, sqlite3, SQLAlchemy |
 | Visualization | matplotlib, seaborn, plotly, folium |
+| Statistics & modeling | scipy, statsmodels, scikit-learn (hypothesis tests, linear and logistic regression) |
 | NLP & Text mining | NLTK (VADER, FreqDist, tokenization), wordcloud |
 | Geospatial analysis | geopy, folium |
 | Interactive dashboards | Streamlit |
@@ -66,4 +77,4 @@ Exploratory analysis of ChatGPT-related data.
 
 ## About
 
-I'm transitioning into data analysis and science, using these projects to build hands-on experience with real-world datasets. Each project tackles a different domain and toolset, from restaurant reviews to financial markets to social media.
+I'm transitioning into data analysis and science, using these projects to build hands-on experience with real-world datasets. Each project tackles a different domain and toolset, from restaurant reviews to financial markets, social media and wine chemistry.
