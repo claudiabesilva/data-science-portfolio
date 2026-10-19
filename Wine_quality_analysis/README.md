@@ -9,7 +9,7 @@ Which physicochemical measurements are associated with higher quality scores, an
 ## Data
 
 - **Source:** [UCI Machine Learning Repository, Wine Quality](https://archive.ics.uci.edu/dataset/186/wine+quality)
-- **Size:** 6,497 samples (1,599 red and 4,898 white; confirm the counts and any changes after cleaning in the notebook), 11 physicochemical variables, one sensory quality score (0 to 10)
+- **Size:** 6,497 samples (1,599 red and 4,898 white); 11 physicochemical variables, one sensory quality score (0 to 10)
 - **License:** CC BY 4.0
 - **Citation:** Cortez, P., Cerdeira, A., Almeida, F., Matos, T., & Reis, J. (2009). Wine Quality [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C56S3T
 
@@ -23,19 +23,22 @@ Which physicochemical measurements are associated with higher quality scores, an
 
 ## Key findings
 
-> Replace with your own results after running the notebook. Keep each finding to one sentence with a number.
-
-1. *(Example format)* Alcohol shows the strongest positive association with quality (standardised coefficient of X).
-2. *(Example format)* The logistic model reaches a ROC AUC of X on held-out data, with recall of X for good wines.
-3. *(Example format)* Red and white wines differ in alcohol by X percentage points (Cohen's d of X).
+- Variables most associated with quality: alcohol (positively) and volatile acidity (negatively).
+- A simple model separates good wines moderately well: recall = 79%, precision = 39%, ROC AUC = 0.825.
 
 ## Limitations
 
-- Quality is a subjective, ordinal sensory score rather than a direct measurement
-- Classes are imbalanced, with few excellent and few poor wines
-- Results describe associations, not causal effects
-- The data covers only *vinho verde* wines from one region
-- Some predictors are correlated with each other (see the VIF table in the notebook)
+- Quality is a subjective, ordinal sensory score, not a measurement.
+- OLS treats quality as continuous, although it is ordinal.
+- The cut-off of 7 for "good" is a choice. Another threshold would give different results. 
+- Classes are imbalanced: 19% of wines are good.
+- Results describe associations, not causes.
+- Duplicates were removed (6,497 to 5,320 wines). 
+- Correlated predictors: density was dropped (VIF 14.9).
+- OLS residuals do not have constant variance (Breusch-Pagan p < 0.001), so OLS p-values and CIs may be too optimistic. 
+- The OLS model includes color and the logistic model does not.
+- The results come from one train/test split. Another split would give slightly different numbers.
+- Data covers only *vinho verde* wines from one region.
 
 ## How to run
 
