@@ -1,6 +1,6 @@
 # Data Analysis Portfolio
 
-A collection of data analysis and data science projects built to develop and demonstrate practical skills across the full analytics workflow — from data cleaning and exploration to statistical modeling, NLP, geospatial analysis, and interactive dashboards.
+A collection of data analysis and data science projects built to develop and demonstrate practical skills across the full analytics workflow: data cleaning, exploration, statistical modeling, NLP, geospatial analysis and interactive dashboards.
 
 > This portfolio is actively growing. New projects are added regularly.
 
@@ -57,9 +57,12 @@ Historical stock market analysis of tech companies from the S&P 500, with an int
 ---
 
 ### [ChatGPT Data Analysis](chatgpt/)
-Exploratory analysis of ChatGPT-related data.
+Exploratory analysis of ~52,000 instruction and response pairs from the `vicgalle/alpaca-gpt4` dataset (Hugging Face).
+- Most frequent prompt themes and prompt type categorization
+- Response readability (Flesch Reading Ease) and verbosity (words per sentence)
+- Relationship between prompt length and response length, and the effect of extra context
 
-`pandas` `matplotlib`
+`pandas` `matplotlib` `seaborn` `plotly` `nltk` `wordcloud` `textstat`
 
 ---
 
@@ -77,4 +80,4 @@ Exploratory analysis of ChatGPT-related data.
 
 ## About
 
-I'm transitioning into data analysis and science, using these projects to build hands-on experience with real-world datasets. Each project tackles a different domain and toolset, from restaurant reviews to financial markets, social media and wine chemistry.
+Chemical Engineer (PhD) building a data analysis portfolio with real-world datasets. Each project tackles a different domain and toolset, from restaurant reviews to financial markets, social media and wine chemistry.
