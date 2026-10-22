@@ -9,7 +9,7 @@ Which physicochemical measurements are associated with higher quality scores, an
 ## Data
 
 - **Source:** [UCI Machine Learning Repository, Wine Quality](https://archive.ics.uci.edu/dataset/186/wine+quality)
-- **Size:** 6,497 samples (1,599 red and 4,898 white); 11 physicochemical variables, one sensory quality score (0 to 10)
+- **Size:** 6,497 samples (1,599 red and 4,898 white); 5,320 wines after removing 1,177 duplicates; 11 physicochemical variables, one sensory quality score (0 to 10)
 - **License:** CC BY 4.0
 - **Citation:** Cortez, P., Cerdeira, A., Almeida, F., Matos, T., & Reis, J. (2009). Wine Quality [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C56S3T
 
@@ -21,10 +21,20 @@ Which physicochemical measurements are associated with higher quality scores, an
 - Linear regression (OLS) with standardised coefficients, VIF, residual diagnostics and Breusch-Pagan test
 - Logistic regression for "good wine": odds ratios with confidence intervals (statsmodels) and held-out evaluation with precision, recall and ROC AUC (scikit-learn)
 
+## Analysis decisions
+
+- **Duplicates removed (6,497 to 5,320 wines):** 1,177 rows were exact copies. Keeping them would count the same wine more than once, and copies could land in both the training and test sets.
+- **Density dropped:** VIF = 14.9 and correlation with alcohol = -0.67. Removing it lowered the condition number from 284,775 to 5,116 and changed R² from 0.311 to 0.306.
+- **Color in OLS, not in logistic regression:** the logistic model uses only the 10 physicochemical measurements, so its odds ratios describe the chemistry and not wine type.
+
 ## Key findings
 
-- Variables most associated with quality: alcohol (positively) and volatile acidity (negatively).
-- A simple model separates good wines moderately well: recall = 79%, precision = 39%, ROC AUC = 0.825.
+- Alcohol is the variable most associated with quality (positively): +0.40 quality points per SD in OLS, odds ratio 3.11 (95% CI 2.77 to 3.50) per SD for a good wine.
+- Volatile acidity is the strongest negative variable: -0.24 quality points per SD in OLS, odds ratio 0.54 (95% CI 0.46 to 0.63) per SD for a good wine.
+- Red vs white alcohol: difference of -0.16 % vol (red lower), Cohen's d = -0.13, Welch t-test p < 0.001.
+- Alcohol by quality group: ANOVA F = 896.2, eta-squared = 0.25; Tukey HSD shows high-quality wines at +1.66 % vol vs low-quality (95% CI 1.57 to 1.75); Kruskal-Wallis p < 0.001 agrees.
+- Logistic model on the held-out test set (1,330 wines, 19% good): recall = 79% (200 of 252 good wines found), precision = 39% (about twice the 19% base rate), ROC AUC = 0.825.
+- With `class_weight="balanced"`, recall is higher and precision lower: 309 of the 509 wines flagged as good (about 6 in 10) are not good.
 
 ## Limitations
 
@@ -33,10 +43,8 @@ Which physicochemical measurements are associated with higher quality scores, an
 - The cut-off of 7 for "good" is a choice. Another threshold would give different results. 
 - Classes are imbalanced: 19% of wines are good.
 - Results describe associations, not causes.
-- Duplicates were removed (6,497 to 5,320 wines). 
-- Correlated predictors: density was dropped (VIF 14.9).
 - OLS residuals do not have constant variance (Breusch-Pagan p < 0.001), so OLS p-values and CIs may be too optimistic. 
-- The OLS model includes color and the logistic model does not.
+- Fixed acidity may reflect wine color, which the logistic model does not include.
 - The results come from one train/test split. Another split would give slightly different numbers.
 - Data covers only *vinho verde* wines from one region.
 
